@@ -9,26 +9,67 @@ html {
 }
 
 body {
-    background: #f6f1e7;
-    color: #26382f;
+    background: #f4efe4;
+    color: #263c31;
     font-family: "Cormorant Garamond", serif;
-    text-align: center;
     overflow-x: hidden;
 }
 
-/* Обложка */
+/* =========================
+   ОБЩИЙ ОРНАМЕНТ
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 12px;
+    border: 1px solid rgba(164, 133, 71, 0.25);
+    pointer-events: none;
+    z-index: 2000;
+}
+
+.ornament {
+    color: #b4965b;
+    letter-spacing: 12px;
+    font-size: 22px;
+    opacity: .8;
+}
+
+.top {
+    position: absolute;
+    top: 35px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 35px;
+}
+
+/* =========================
+   ОБЛОЖКА
+========================= */
 
 #loader {
     position: fixed;
     inset: 0;
     z-index: 1000;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
     background:
-        radial-gradient(circle at center, rgba(255,255,255,.7), transparent 60%),
-        #f6f1e7;
-    transition: opacity 1.2s ease, visibility 1.2s ease;
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.8),
+            transparent 55%
+        ),
+        #f4efe4;
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
 }
 
 #loader.hidden {
@@ -37,102 +78,141 @@ body {
     pointer-events: none;
 }
 
-.cover {
+.envelope {
     width: min(90%, 520px);
     min-height: 650px;
+
     padding: 70px 30px;
-    border: 1px solid #b89b62;
-    position: relative;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
-    background: rgba(255,255,255,.25);
-    box-shadow: 0 20px 60px rgba(60,50,30,.12);
+    text-align: center;
+
+    position: relative;
+
+    border: 1px solid #b4965b;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.55),
+            rgba(255,255,255,.15)
+        );
+
+    box-shadow:
+        0 25px 80px rgba(50,40,20,.12);
 }
 
-.cover::before,
-.cover::after {
+.envelope::before,
+.envelope::after {
     content: "";
+
     position: absolute;
-    width: 80px;
-    height: 80px;
-    border: 1px solid #b89b62;
+
+    width: 85px;
+    height: 85px;
+
+    border-color: #b4965b;
+    border-style: solid;
 }
 
-.cover::before {
+.envelope::before {
     top: 15px;
     left: 15px;
-    border-right: none;
-    border-bottom: none;
+
+    border-width: 1px 0 0 1px;
 }
 
-.cover::after {
+.envelope::after {
     bottom: 15px;
     right: 15px;
-    border-left: none;
-    border-top: none;
+
+    border-width: 0 1px 1px 0;
+}
+
+.bismillah,
+.arabic-symbol,
+.final-bismillah {
+    font-family: serif;
+    color: #a28349;
 }
 
 .bismillah {
-    font-size: 52px;
-    color: #9b7b42;
-    margin-bottom: 35px;
-}
-
-.cover h1 {
-    font-size: clamp(42px, 10vw, 68px);
-    font-weight: 400;
-    line-height: 1.05;
-    color: #294638;
+    font-size: 55px;
     margin-bottom: 25px;
 }
 
-.cover p {
-    font-size: 20px;
-    line-height: 1.5;
-    max-width: 280px;
-    color: #6c665b;
-    margin-bottom: 45px;
+.small-title {
+    font-size: 17px;
+    color: #7c7668;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
 }
 
-/* Кнопки */
+.envelope h1 {
+    font-size: clamp(48px, 11vw, 72px);
+    font-weight: 400;
+    line-height: 1;
+    color: #29483a;
+}
+
+.decor-line {
+    margin: 30px 0;
+    color: #a28349;
+    font-size: 25px;
+}
+
+.envelope p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #666257;
+    margin-bottom: 38px;
+}
+
+/* =========================
+   КНОПКА
+========================= */
 
 button,
-.btn {
-    display: inline-block;
-    padding: 14px 28px;
-    border: 1px solid #a88b56;
-    background: #294638;
+.main-button {
+    border: 1px solid #a28349;
+    background: #29483a;
     color: #fff;
-    text-decoration: none;
+
+    padding: 15px 28px;
+
     font-family: inherit;
     font-size: 18px;
+
+    text-decoration: none;
+
     cursor: pointer;
-    transition: .3s ease;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
 }
 
 button:hover,
-.btn:hover {
-    background: #9b7b42;
-    transform: translateY(-2px);
+.main-button:hover {
+    background: #a28349;
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(40,60,45,.18);
 }
 
-.btn {
-    margin: 8px;
-}
-
-.btn.green {
-    background: #294638;
-}
-
-/* Основная страница */
+/* =========================
+   ОСНОВНОЙ КОНТЕНТ
+========================= */
 
 #content {
     opacity: 0;
-    transition: opacity 1.5s ease;
+    transition: opacity 1.8s ease;
 }
 
 #content.visible {
@@ -140,149 +220,382 @@ button:hover,
 }
 
 .section {
-    width: min(90%, 760px);
+    width: min(92%, 760px);
     margin: auto;
-    padding: 90px 20px;
+
+    padding: 95px 20px;
+
+    text-align: center;
 }
 
-.section h2 {
-    font-size: clamp(30px, 6vw, 46px);
+.hero {
+    padding-top: 110px;
+}
+
+.arabic-symbol {
+    font-size: 48px;
+    margin-bottom: 25px;
+}
+
+.gold-line {
+    width: 90px;
+    height: 1px;
+    background: #b4965b;
+    margin: 0 auto 35px;
+}
+
+.hero h2 {
+    font-size: clamp(30px, 7vw, 48px);
     font-weight: 400;
     line-height: 1.2;
-    color: #294638;
-    margin-bottom: 30px;
+
+    color: #29483a;
+
+    margin-bottom: 35px;
 }
 
-.section p {
+.hero p {
     font-size: 21px;
     line-height: 1.8;
-    color: #4d5149;
+
+    color: #56564e;
+
     margin-bottom: 22px;
 }
 
-/* Цитата */
+/* =========================
+   ЦИТАТА
+========================= */
 
-.quote {
+.quote-section {
     position: relative;
-    padding-top: 100px;
-    padding-bottom: 100px;
+
+    background:
+        linear-gradient(
+            rgba(41,72,58,.96),
+            rgba(41,72,58,.96)
+        );
+
+    color: #f5efe3;
+
+    max-width: 100%;
+
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.quote::before {
-    content: "❦";
-    display: block;
-    font-size: 42px;
-    color: #a88b56;
+.quote-ornament {
+    font-size: 45px;
+    color: #c2a66b;
     margin-bottom: 30px;
 }
 
-.quote p {
+blockquote {
+    font-size: clamp(23px, 5vw, 32px);
+    line-height: 1.6;
     font-style: italic;
-    font-size: 23px;
+    max-width: 800px;
+    margin: auto;
 }
 
-.quote span {
-    color: #9b7b42;
-    font-size: 18px;
+.quote-author {
+    margin-top: 30px;
+    color: #d0b77e;
+    font-size: 19px;
 }
 
-/* Информация */
+/* =========================
+   ЗАГОЛОВКИ
+========================= */
 
-.info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
 }
 
-.card {
-    padding: 35px 20px;
-    border: 1px solid rgba(168,139,86,.55);
-    background: rgba(255,255,255,.35);
-}
+.section-title span {
+    display: block;
 
-.card h3 {
-    color: #9b7b42;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 32px;
+
+    color: #29483a;
+
     margin-bottom: 15px;
 }
 
-.card p {
-    font-size: 23px;
-    margin: 0;
+.section-title div {
+    color: #a28349;
+    font-size: 22px;
 }
 
-/* Таймер */
+/* =========================
+   КАРТОЧКИ
+========================= */
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-card {
+    width: min(100%, 500px);
+
+    padding: 30px;
+
+    margin-bottom: 18px;
+
+    background: rgba(255,255,255,.38);
+
+    border: 1px solid rgba(164,133,71,.45);
+
+    text-align: center;
+
+    transition: transform .3s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+}
+
+.detail-icon {
+    color: #a28349;
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.detail-label {
+    color: #8a806d;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.detail-value {
+    font-size: 27px;
+    color: #29483a;
+}
+
+/* =========================
+   ТАЙМЕР
+========================= */
+
+.countdown-section {
+    background: rgba(255,255,255,.3);
+}
 
 #countdown {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
+
     flex-wrap: wrap;
 }
 
-#countdown div {
-    min-width: 100px;
-    padding: 20px 12px;
-    border: 1px solid rgba(168,139,86,.55);
-    background: rgba(255,255,255,.35);
+.time-box {
+    min-width: 105px;
+
+    padding: 20px 10px;
+
+    border: 1px solid rgba(164,133,71,.5);
+
+    background: rgba(255,255,255,.5);
 }
 
-#countdown span {
+.time-box span {
     display: block;
-    font-size: 38px;
-    color: #294638;
+
+    font-size: 42px;
+
+    color: #29483a;
 }
 
-#countdown small {
+.time-box small {
     font-size: 16px;
-    color: #77705f;
+    color: #7a7569;
 }
 
-/* Низ */
+/* =========================
+   КНОПКИ ДЕЙСТВИЙ
+========================= */
 
-footer {
-    padding: 80px 20px;
-    background: #294638;
-    color: #f6f1e7;
-    font-size: 21px;
-    line-height: 1.8;
+.action-section {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    max-width: 900px;
 }
 
-/* Телефон */
+.action-card {
+    padding: 45px 25px;
+
+    border: 1px solid rgba(164,133,71,.5);
+
+    background: rgba(255,255,255,.4);
+
+    text-align: center;
+}
+
+.action-icon {
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+
+.action-card h3 {
+    font-size: 30px;
+    font-weight: 400;
+
+    color: #29483a;
+
+    margin-bottom: 15px;
+}
+
+.action-card p {
+    font-size: 18px;
+    line-height: 1.6;
+
+    color: #666257;
+
+    margin-bottom: 25px;
+}
+
+.whatsapp {
+    background: #287b4d;
+}
+
+.whatsapp:hover {
+    background: #1f633e;
+}
+
+/* =========================
+   ФИНАЛ
+========================= */
+
+.final-section {
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background: #29483a;
+
+    color: #f5efe3;
+}
+
+.final-ornament {
+    color: #c2a66b;
+
+    font-size: 24px;
+
+    letter-spacing: 8px;
+
+    margin: 20px;
+}
+
+.final-bismillah {
+    font-size: 48px;
+
+    margin-bottom: 30px;
+}
+
+.final-section p {
+    max-width: 600px;
+
+    margin: auto auto 25px;
+
+    font-size: 22px;
+
+    line-height: 1.7;
+}
+
+.final-section h3 {
+    font-size: 32px;
+
+    font-weight: 400;
+
+    color: #d2b87b;
+}
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
 
 @media (max-width: 700px) {
 
-    .cover {
-        min-height: 580px;
-        padding: 50px 20px;
+    body::before {
+        inset: 7px;
+    }
+
+    .envelope {
+        min-height: 570px;
+        padding: 45px 20px;
     }
 
     .bismillah {
         font-size: 43px;
     }
 
-    .section {
-        padding: 65px 15px;
+    .envelope h1 {
+        font-size: 50px;
     }
 
-    .info {
-        grid-template-columns: 1fr;
+    .hero {
+        padding-top: 80px;
+    }
+
+    .hero p {
+        font-size: 19px;
+        line-height: 1.7;
+    }
+
+    .section {
+        padding: 70px 15px;
+    }
+
+    .quote-section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    blockquote {
+        font-size: 22px;
+    }
+
+    .section-title span {
+        font-size: 28px;
+    }
+
+    .detail-value {
+        font-size: 24px;
     }
 
     #countdown {
-        gap: 8px;
+        gap: 7px;
     }
 
-    #countdown div {
+    .time-box {
         min-width: 75px;
+        padding: 15px 7px;
     }
 
-    #countdown span {
-        font-size: 29px;
+    .time-box span {
+        font-size: 30px;
     }
 
-    .section p {
-        font-size: 19px;
+    .time-box small {
+        font-size: 14px;
+    }
+
+    .action-section {
+        grid-template-columns: 1fr;
+    }
+
+    .action-card {
+        padding: 35px 20px;
+    }
+
+    .final-section {
+        padding: 75px 20px;
     }
 }
