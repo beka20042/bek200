@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f6f1e7;
+    color: #26382f;
+    font-family: "Cormorant Garamond", serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Обложка */
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        radial-gradient(circle at center, rgba(255,255,255,.7), transparent 60%),
+        #f6f1e7;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+
+#loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.cover {
+    width: min(90%, 520px);
+    min-height: 650px;
+    padding: 70px 30px;
+    border: 1px solid #b89b62;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(255,255,255,.25);
+    box-shadow: 0 20px 60px rgba(60,50,30,.12);
+}
+
+.cover::before,
+.cover::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #b89b62;
+}
+
+.cover::before {
+    top: 15px;
+    left: 15px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.cover::after {
+    bottom: 15px;
+    right: 15px;
+    border-left: none;
+    border-top: none;
+}
+
+.bismillah {
+    font-size: 52px;
+    color: #9b7b42;
+    margin-bottom: 35px;
+}
+
+.cover h1 {
+    font-size: clamp(42px, 10vw, 68px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #294638;
+    margin-bottom: 25px;
+}
+
+.cover p {
+    font-size: 20px;
+    line-height: 1.5;
+    max-width: 280px;
+    color: #6c665b;
+    margin-bottom: 45px;
+}
+
+/* Кнопки */
+
+button,
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border: 1px solid #a88b56;
+    background: #294638;
+    color: #fff;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+button:hover,
+.btn:hover {
+    background: #9b7b42;
+    transform: translateY(-2px);
+}
+
+.btn {
+    margin: 8px;
+}
+
+.btn.green {
+    background: #294638;
+}
+
+/* Основная страница */
+
+#content {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+#content.visible {
+    opacity: 1;
+}
+
+.section {
+    width: min(90%, 760px);
+    margin: auto;
+    padding: 90px 20px;
+}
+
+.section h2 {
+    font-size: clamp(30px, 6vw, 46px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: #294638;
+    margin-bottom: 30px;
+}
+
+.section p {
+    font-size: 21px;
+    line-height: 1.8;
+    color: #4d5149;
+    margin-bottom: 22px;
+}
+
+/* Цитата */
+
+.quote {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.quote::before {
+    content: "❦";
+    display: block;
+    font-size: 42px;
+    color: #a88b56;
+    margin-bottom: 30px;
+}
+
+.quote p {
+    font-style: italic;
+    font-size: 23px;
+}
+
+.quote span {
+    color: #9b7b42;
+    font-size: 18px;
+}
+
+/* Информация */
+
+.info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.card {
+    padding: 35px 20px;
+    border: 1px solid rgba(168,139,86,.55);
+    background: rgba(255,255,255,.35);
+}
+
+.card h3 {
+    color: #9b7b42;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 23px;
+    margin: 0;
+}
+
+/* Таймер */
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#countdown div {
+    min-width: 100px;
+    padding: 20px 12px;
+    border: 1px solid rgba(168,139,86,.55);
+    background: rgba(255,255,255,.35);
+}
+
+#countdown span {
+    display: block;
+    font-size: 38px;
+    color: #294638;
+}
+
+#countdown small {
+    font-size: 16px;
+    color: #77705f;
+}
+
+/* Низ */
+
+footer {
+    padding: 80px 20px;
+    background: #294638;
+    color: #f6f1e7;
+    font-size: 21px;
+    line-height: 1.8;
+}
+
+/* Телефон */
+
+@media (max-width: 700px) {
+
+    .cover {
+        min-height: 580px;
+        padding: 50px 20px;
+    }
+
+    .bismillah {
+        font-size: 43px;
+    }
+
+    .section {
+        padding: 65px 15px;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    #countdown {
+        gap: 8px;
+    }
+
+    #countdown div {
+        min-width: 75px;
+    }
+
+    #countdown span {
+        font-size: 29px;
+    }
+
+    .section p {
+        font-size: 19px;
+    }
+}
