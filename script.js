@@ -1,13 +1,13 @@
-// ========================================
-// НАСТРОЙКИ
-// ========================================
+// =====================================
+// ДАТА И ВРЕМЯ ВАЛИИМЫ
+// =====================================
 
-// Дата валиимы
-const eventDate = new Date("2026-08-16T16:00:00");
+const eventDate = new Date("2026-08-16T14:00:00");
 
-// ========================================
+
+// =====================================
 // ОБРАТНЫЙ ОТСЧЁТ
-// ========================================
+// =====================================
 
 function updateCountdown() {
 
@@ -15,6 +15,7 @@ function updateCountdown() {
 
   const difference =
     eventDate.getTime() - now.getTime();
+
 
   const days =
     document.getElementById("days");
@@ -29,7 +30,10 @@ function updateCountdown() {
     document.getElementById("seconds");
 
 
-  // Если дата уже наступила
+  if (!days || !hours || !minutes || !seconds) {
+    return;
+  }
+
 
   if (difference <= 0) {
 
@@ -79,8 +83,6 @@ function updateCountdown() {
 }
 
 
-// Запускаем таймер
-
 updateCountdown();
 
 setInterval(
@@ -89,93 +91,37 @@ setInterval(
 );
 
 
-// ========================================
-// ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ
-// ========================================
+// =====================================
+// КНОПКА ПОДТВЕРЖДЕНИЯ
+// =====================================
 
 const rsvpButton =
   document.getElementById("rsvpButton");
 
 
-const message =
-  "Ассаляму алейкум! Я хочу подтвердить своё присутствие на валииме 16 августа 2026 года в 16:00.";
+if (rsvpButton) {
+
+  rsvpButton.addEventListener(
+    "click",
+    function(event) {
+
+      event.preventDefault();
 
 
-rsvpButton.addEventListener(
-  "click",
-  function (event) {
-
-    event.preventDefault();
+      const message =
+        "Ассаляму алейкум! Я хочу подтвердить своё присутствие на валииме 16 августа 2026 года в 14:00.";
 
 
-    const encodedMessage =
-      encodeURIComponent(message);
+      const encodedMessage =
+        encodeURIComponent(message);
 
 
-    /*
-      ПОКА НОМЕР НЕ УКАЗАН.
-
-      Поэтому откроется WhatsApp
-      с уже готовым текстом.
-    */
-
-    window.open(
-      `https://wa.me/?text=${encodedMessage}`,
-      "_blank"
-    );
-
-  }
-);
-
-
-// ========================================
-// АНИМАЦИЯ ПРИ ПРОКРУТКЕ
-// ========================================
-
-const cards =
-  document.querySelectorAll(".card");
-
-
-const observer =
-  new IntersectionObserver(
-
-    (entries) => {
-
-      entries.forEach(
-        (entry) => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add(
-              "visible"
-            );
-
-            observer.unobserve(
-              entry.target
-            );
-
-          }
-
-        }
+      window.open(
+        `https://wa.me/?text=${encodedMessage}`,
+        "_blank"
       );
 
-    },
-
-    {
-      threshold: 0.08
     }
-
   );
 
-
-cards.forEach(
-  (card) => {
-
-    card.classList.add(
-      "reveal"
-    );
-
-    observer.observe(card);
-
-  }
-);
+}
