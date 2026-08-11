@@ -1,289 +1,304 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Приглашение на Валииму</title>
+    <title>Приглашение на Валиму</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
 
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="page">
+<!-- ==================== ОБЛОЖКА ==================== -->
 
-  <!-- ПЕРВАЯ СТРАНИЦА / ОТКРЫТКА -->
+<div id="loader">
 
-  <section class="hero">
+    <div class="ornament top">❧ ❧ ❧</div>
 
-    <div class="decor decor-left">
-      <div class="lantern">✦</div>
-    </div>
+    <div class="envelope">
 
-    <div class="hero-content">
-
-      <div class="arabic">
-        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-      </div>
-
-      <div class="permission">
-        С дозволения Всевышнего Аллаха
-      </div>
-
-      <h1>
-        Приглашение на
-      </h1>
-
-      <h2>
-        Валииму
-      </h2>
-
-      <div class="gold-line">
-        ✦
-      </div>
-
-      <p class="hero-text">
-        Будем искренне рады разделить с вами<br>
-        этот благословенный день.
-      </p>
-
-      <button
-        class="scroll-btn"
-        onclick="document.getElementById('welcome').scrollIntoView({behavior:'smooth'})">
-
-        ↓
-
-      </button>
-
-    </div>
-
-    <div class="decor decor-right">
-      <div class="lantern">✦</div>
-    </div>
-
-  </section>
-
-
-  <!-- ВТОРОЙ БЛОК -->
-
-  <main>
-
-    <section class="card welcome" id="welcome">
-
-      <h3>
-        Ассаляму алейкум ва баракатух!
-      </h3>
-
-      <p>
-        С дозволения Всевышнего Аллаха мы планируем
-        создать новую семью в соответствии с сунной
-        Пророка Мухаммада ﷺ.
-      </p>
-
-      <p>
-        Будем искренне рады разделить с вами радость
-        этого благословенного дня, вознести ду'а за наш
-        союз и разделить щедрую трапезу (валииму).
-      </p>
-
-
-      <blockquote>
-
-        <span class="quote-left">“</span>
-
-        «О молодёжь! Кто из вас способен вступить в брак,
-        пусть женится, ибо это лучше помогает обуздать взор
-        и оберегает невинность».
-
-        <footer>
-          Аль-Бухари и Муслим
-        </footer>
-
-        <span class="quote-right">”</span>
-
-      </blockquote>
-
-    </section>
-
-
-    <!-- НАШ ДЕНЬ -->
-
-    <section class="card details">
-
-      <h3>
-        Наш благословенный день
-      </h3>
-
-
-      <div class="info-grid">
-
-        <div class="info-box">
-
-          <div class="info-icon">
-            📅
-          </div>
-
-          <div>
-            <span>Дата:</span>
-            <strong>16 августа 2026</strong>
-          </div>
-
+        <div class="bismillah">
+            ﷽
         </div>
 
-
-        <div class="info-box">
-
-          <div class="info-icon">
-            🕑
-          </div>
-
-          <div>
-            <span>Время:</span>
-            <strong>14:00</strong>
-          </div>
-
+        <div class="small-title">
+            С дозволения Всевышнего Аллаха
         </div>
 
+        <h1>
+            Приглашение<br>
+            на Валиму
+        </h1>
 
-        <div class="info-box">
-
-          <div class="info-icon">
-            📍
-          </div>
-
-          <div>
-            <span>Место:</span>
-            <strong>Маджариптал, 216</strong>
-          </div>
-
+        <div class="decor-line">
+            ✦
         </div>
-
-      </div>
-
-
-      <h4>
-        До нашей встречи
-      </h4>
-
-
-      <div class="countdown">
-
-        <div>
-          <strong id="days">0</strong>
-          <span>Дней</span>
-        </div>
-
-        <div>
-          <strong id="hours">0</strong>
-          <span>Часов</span>
-        </div>
-
-        <div>
-          <strong id="minutes">0</strong>
-          <span>Минут</span>
-        </div>
-
-        <div>
-          <strong id="seconds">0</strong>
-          <span>Секунд</span>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- НИЖНИЕ БЛОКИ -->
-
-    <section class="bottom-grid">
-
-
-      <div class="card location">
-
-        <div>
-
-          <h3>
-            Как нас найти
-          </h3>
-
-          <p>
-            Мы будем рады видеть вас<br>
-            на этом особенном дне.
-          </p>
-
-          <a
-            class="button"
-            href="https://www.google.com/maps/search/?api=1&query=%D0%9C%D0%B0%D0%B4%D0%B6%D0%B0%D1%80%D0%B8%D0%BF%D1%82%D0%B0%D0%BB%2C%20216"
-            target="_blank">
-
-            📍 Открыть карту
-
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div class="card rsvp">
-
-        <h3>
-          Подтвердите присутствие
-        </h3>
 
         <p>
-          Пожалуйста, сообщите нам,<br>
-          сможете ли вы присутствовать.
+            Будем искренне рады<br>
+            разделить с вами<br>
+            этот благословенный день
         </p>
 
-        <a
-          class="button"
-          id="rsvpButton"
-          href="#">
+        <button id="openBtn">
+            Открыть приглашение
+        </button>
 
-          💬 Подтвердить присутствие
+    </div>
 
-        </a>
-
-      </div>
-
-
-    </section>
-
-
-    <!-- ФИНАЛ -->
-
-    <section class="card closing">
-
-      <div class="arabic small">
-        بَارَكَ اللَّهُ فِيكُمْ
-      </div>
-
-      <p>
-        И вознаградит вас Аллах благом за то,
-        что вы стали частью этого важного для нас дня.
-      </p>
-
-      <h3>
-        Ждём вас на нашей валииме
-      </h3>
-
-    </section>
-
-  </main>
-
-
-  <footer class="footer">
-    С любовью и благодарностью 🤍
-  </footer>
+    <div class="ornament bottom">❧ ❧ ❧</div>
 
 </div>
+
+
+<!-- ==================== ОСНОВНОЕ ПРИГЛАШЕНИЕ ==================== -->
+
+<main id="content">
+
+    <section class="hero section">
+
+        <div class="arabic-symbol">
+            ﷽
+        </div>
+
+        <div class="gold-line"></div>
+
+        <h2>
+            Ассаляму алейкум<br>
+            ва рахматуллахи ва баракатух!
+        </h2>
+
+        <p>
+            С дозволения Всевышнего Аллаха мы планируем
+            создание новой семьи в соответствии с сунной
+            Пророка Мухаммада ﷺ.
+        </p>
+
+        <p>
+            Будем искренне рады разделить с вами радость
+            этого благословенного дня, вознести дуа за наш
+            союз и разделить праздничную трапезу (валиму).
+        </p>
+
+    </section>
+
+
+    <!-- ==================== ЦИТАТА ==================== -->
+
+    <section class="quote-section section">
+
+        <div class="quote-ornament">
+            ❦
+        </div>
+
+        <blockquote>
+            «О молодёжь! Кто из вас способен вступить
+            в брак, пусть женится, ибо это лучше помогает
+            потуплять взоры и оберегать целомудрие».
+        </blockquote>
+
+        <div class="quote-author">
+            Аль-Бухари и Муслим
+        </div>
+
+    </section>
+
+
+    <!-- ==================== ДАТА ==================== -->
+
+    <section class="details section">
+
+        <div class="section-title">
+            <span>Наш благословенный день</span>
+            <div>✦</div>
+        </div>
+
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+                ☾
+            </div>
+
+            <div class="detail-label">
+                Дата
+            </div>
+
+            <div class="detail-value">
+                16 августа 2026
+            </div>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+                ◷
+            </div>
+
+            <div class="detail-label">
+                Время
+            </div>
+
+            <div class="detail-value">
+                16:00
+            </div>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <div class="detail-icon">
+                ⌖
+            </div>
+
+            <div class="detail-label">
+                Место
+            </div>
+
+            <div class="detail-value">
+                Маджеримтал, 216
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== ТАЙМЕР ==================== -->
+
+    <section class="countdown-section section">
+
+        <div class="section-title">
+            <span>До нашей встречи</span>
+            <div>✦</div>
+        </div>
+
+        <div id="countdown">
+
+            <div class="time-box">
+                <span id="days">0</span>
+                <small>дней</small>
+            </div><div class="time-box">
+                <span id="hours">0</span>
+                <small>часов</small>
+            </div>
+
+            <div class="time-box">
+                <span id="minutes">0</span>
+                <small>минут</small>
+            </div>
+
+            <div class="time-box">
+                <span id="seconds">0</span>
+                <small>секунд</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== КАРТА ==================== -->
+
+    <section class="action-section section">
+
+        <div class="action-card">
+
+            <div class="action-icon">
+                📍
+            </div>
+
+            <h3>
+                Как нас найти
+            </h3>
+
+            <p>
+                Мы будем рады видеть вас<br>
+                в этот особенный день.
+            </p>
+
+            <a
+                class="main-button"
+                href="https://2gis.kg/bishkek/geo/70030076150229054/72.800424,40.535833"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Открыть карту
+            </a>
+
+        </div>
+
+
+        <!-- ==================== WHATSAPP ==================== -->
+
+        <div class="action-card">
+
+            <div class="action-icon">
+                🤲
+            </div>
+
+            <h3>
+                Подтвердите присутствие
+            </h3>
+
+            <p>
+                Пожалуйста, сообщите нам,<br>
+                сможете ли вы присутствовать.
+            </p>
+
+            <a
+                class="main-button whatsapp"
+                href="https://wa.me/996999716771?text=Ассаляму%20алейкум!%20Подтверждаю%20своё%20присутствие%20на%20валиме%2016%20августа%202026%20года."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Подтвердить присутствие
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==================== ФИНАЛ ==================== -->
+
+    <section class="final-section">
+
+        <div class="final-ornament">
+            ❧ ✦ ❧
+        </div>
+
+        <div class="final-bismillah">
+            ﷽
+        </div>
+
+        <p>
+            Да вознаградит вас Аллах благом
+            за то, что разделите с нами
+            этот благословенный день.
+        </p>
+
+        <h3>
+            Ждём вас на нашей валиме
+        </h3>
+
+        <div class="final-ornament">
+            ❧ ✦ ❧
+        </div>
+
+    </section>
+
+</main>
 
 
 <script src="script.js"></script>
