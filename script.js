@@ -1,127 +1,110 @@
-// =====================================
-// ДАТА И ВРЕМЯ ВАЛИИМЫ
-// =====================================
+// ==========================================
+// ОТКРЫТИЕ ПРИГЛАШЕНИЯ
+// ==========================================
 
-const eventDate = new Date("2026-08-16T14:00:00");
+const openBtn = document.getElementById("openBtn");
+const loader = document.getElementById("loader");
+const content = document.getElementById("content");
+
+openBtn.addEventListener("click", function () {
+
+    // Небольшой эффект нажатия
+    openBtn.style.transform = "scale(0.95)";
+
+    setTimeout(function () {
+
+        // Закрываем обложку
+        loader.classList.add("hidden");
+
+        // Показываем приглашение
+        setTimeout(function () {
+            content.classList.add("visible");
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }, 500);
+
+    }, 250);
+
+});
 
 
-// =====================================
-// ОБРАТНЫЙ ОТСЧЁТ
-// =====================================
+// ==========================================
+// ТАЙМЕР ДО ВАЛИМЫ
+// 16 АВГУСТА 2026 — 16:00
+// ==========================================
+
+const weddingDate = new Date("2026-08-16T16:00:00").getTime();
 
 function updateCountdown() {
 
-  const now = new Date();
+    const now = new Date().getTime();
 
-  const difference =
-    eventDate.getTime() - now.getTime();
-
-
-  const days =
-    document.getElementById("days");
-
-  const hours =
-    document.getElementById("hours");
-
-  const minutes =
-    document.getElementById("minutes");
-
-  const seconds =
-    document.getElementById("seconds");
+    const distance = weddingDate - now;
 
 
-  if (!days || !hours || !minutes || !seconds) {
-    return;
-  }
+    // Если дата уже наступила
+
+    if (distance <= 0) {
+
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+
+        return;
+    }
 
 
-  if (difference <= 0) {
+    // Дни
 
-    days.textContent = "0";
-    hours.textContent = "0";
-    minutes.textContent = "0";
-    seconds.textContent = "0";
-
-    return;
-  }
-
-
-  const totalSeconds =
-    Math.floor(difference / 1000);
-
-
-  const d =
-    Math.floor(totalSeconds / 86400);
-
-
-  const h =
-    Math.floor(
-      (totalSeconds % 86400) / 3600
+    const days = Math.floor(
+        distance / (1000 * 60 * 60 * 24)
     );
 
 
-  const m =
-    Math.floor(
-      (totalSeconds % 3600) / 60
+    // Часы
+
+    const hours = Math.floor(
+        (distance / (1000 * 60 * 60)) % 24
     );
 
 
-  const s =
-    totalSeconds % 60;
+    // Минуты
+
+    const minutes = Math.floor(
+        (distance / (1000 * 60)) % 60
+    );
 
 
-  days.textContent = d;
+    // Секунды
 
-  hours.textContent =
-    String(h).padStart(2, "0");
+    const seconds = Math.floor(
+        (distance / 1000) % 60
+    );
 
-  minutes.textContent =
-    String(m).padStart(2, "0");
 
-  seconds.textContent =
-    String(s).padStart(2, "0");
+    // Показываем значения
+
+    document.getElementById("days").textContent = days;
+
+    document.getElementById("hours").textContent = hours;
+
+    document.getElementById("minutes").textContent = minutes;
+
+    document.getElementById("seconds").textContent = seconds;
+
 }
 
+
+// Запускаем таймер сразу
 
 updateCountdown();
 
-setInterval(
-  updateCountdown,
-  1000
-);
 
+// Обновляем каждую секунду
 
-// =====================================
-// КНОПКА ПОДТВЕРЖДЕНИЯ
-// =====================================
-
-const rsvpButton =
-  document.getElementById("rsvpButton");
-
-
-if (rsvpButton) {
-
-  rsvpButton.addEventListener(
-    "click",
-    function(event) {
-
-      event.preventDefault();
-
-
-      const message =
-        "Ассаляму алейкум! Я хочу подтвердить своё присутствие на валииме 16 августа 2026 года в 14:00.";
-
-
-      const encodedMessage =
-        encodeURIComponent(message);
-
-
-      window.open(
-        `https://wa.me/?text=${encodedMessage}`,
-        "_blank"
-      );
-
-    }
-  );
-
-}
+setInterval(updateCountdown, 1000);
