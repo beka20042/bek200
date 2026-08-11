@@ -5,14 +5,13 @@
 }
 
 :root {
-  --cream: #fffaf2;
-  --paper: #fffdf9;
-  --gold: #d99b16;
-  --gold-dark: #a66c0b;
+  --cream: #fff9ed;
+  --white: #fffdf9;
+  --gold: #d5a02a;
+  --gold-dark: #a87516;
   --brown: #3e3027;
   --muted: #75685d;
   --line: #eadcc8;
-  --shadow: 0 10px 35px rgba(117, 83, 38, .10);
 }
 
 html {
@@ -25,17 +24,18 @@ body {
   background:
     radial-gradient(
       circle at 15% 10%,
-      rgba(224, 171, 55, .13),
-      transparent 25%
+      rgba(225, 174, 60, .16),
+      transparent 28%
     ),
     radial-gradient(
       circle at 85% 20%,
-      rgba(224, 171, 55, .10),
-      transparent 25%
+      rgba(225, 174, 60, .12),
+      transparent 28%
     ),
     var(--cream);
 
   color: var(--brown);
+
   font-family: "Montserrat", sans-serif;
 }
 
@@ -46,57 +46,112 @@ body {
 }
 
 
-/* =========================
-   ПЕРВЫЙ ЭКРАН
-========================= */
+/* ==========================
+   ПЕРВАЯ ОТКРЫТКА
+========================== */
 
 .hero {
-  position: relative;
-
   min-height: 620px;
 
+  position: relative;
+
   display: grid;
-  grid-template-columns: 190px 1fr 190px;
+
+  grid-template-columns: 180px 1fr 180px;
 
   align-items: center;
 
-  padding: 50px 20px 35px;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
+  padding: 45px 20px 35px;
 
   text-align: center;
 }
 
 
-/* =========================
-   АРАБСКИЙ ТЕКСТ
-========================= */
+/* декоративные стороны */
+
+.decor {
+  height: 390px;
+  width: 150px;
+
+  position: relative;
+
+  border: 2px solid rgba(205, 157, 55, .42);
+
+  border-radius: 80px 80px 0 0;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 9px,
+      rgba(207, 157, 55, .08) 10px 11px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 9px,
+      rgba(207, 157, 55, .08) 10px 11px
+    );
+}
+
+.decor-left {
+  justify-self: start;
+}
+
+.decor-right {
+  justify-self: end;
+}
+
+
+/* маленький золотой декор */
+
+.lantern {
+  position: absolute;
+
+  left: 50%;
+  bottom: 25px;
+
+  transform: translateX(-50%);
+
+  width: 70px;
+  height: 95px;
+
+  display: grid;
+  place-items: center;
+
+  border: 2px solid #c79425;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      #fff7d8,
+      #f4d681
+    );
+
+  color: var(--gold);
+
+  font-size: 28px;
+
+  box-shadow:
+    0 0 30px rgba(221, 172, 51, .30);
+}
+
+
+/* центр */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
 
 .arabic {
   color: var(--gold-dark);
 
   font-family: "Amiri", serif;
 
-  font-size: 31px;
-
-  line-height: 1.2;
+  font-size: 30px;
 
   margin-bottom: 8px;
 }
-
-.arabic.small {
-  font-size: 27px;
-}
-
-
-/* =========================
-   ЗАГОЛОВОК
-========================= */
 
 .permission {
   color: var(--gold-dark);
@@ -105,7 +160,7 @@ body {
 
   font-size: 20px;
 
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .hero h1,
@@ -116,7 +171,7 @@ body {
 }
 
 .hero h1 {
-  font-size: clamp(48px, 7vw, 78px);
+  font-size: clamp(46px, 7vw, 76px);
 
   line-height: .95;
 
@@ -126,53 +181,49 @@ body {
 .hero h2 {
   color: var(--gold);
 
-  font-size: clamp(64px, 9vw, 105px);
+  font-size: clamp(65px, 9vw, 105px);
 
   line-height: .95;
 
   font-weight: 600;
 
-  margin: 4px 0 18px;
+  margin-top: 5px;
 }
 
-.ornament {
+.gold-line {
   color: var(--gold);
 
-  font-size: 18px;
+  font-size: 20px;
 
-  letter-spacing: 10px;
-
-  margin-bottom: 18px;
+  margin: 18px 0;
 }
 
 .hero-text {
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 23px;
+  font-size: 22px;
 
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 
-/* =========================
-   КНОПКА ВНИЗ
-========================= */
+/* кнопка вниз */
 
 .scroll-btn {
-  margin-top: 32px;
+  margin-top: 30px;
 
-  width: 46px;
-  height: 46px;
+  width: 52px;
+  height: 52px;
 
   border-radius: 50%;
 
   border: 1px solid var(--gold);
 
-  background: #fffdf9;
+  background: rgba(255,255,255,.7);
 
   color: var(--gold-dark);
 
-  font-size: 27px;
+  font-size: 25px;
 
   cursor: pointer;
 
@@ -183,155 +234,60 @@ body {
   transform: translateY(4px);
 
   box-shadow:
-    0 8px 20px rgba(190, 132, 20, .18);
+    0 8px 20px rgba(190,132,20,.18);
 }
 
 
-/* =========================
-   АРКИ ПО КРАЯМ
-========================= */
-
-.arch {
-  position: relative;
-
-  width: 165px;
-  height: 410px;
-
-  border: 2px solid rgba(205, 148, 31, .55);
-
-  border-radius: 85px 85px 0 0;
-
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent 0 8px,
-      rgba(210, 158, 53, .12) 9px 10px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent 0 8px,
-      rgba(210, 158, 53, .12) 9px 10px
-    );
-
-  opacity: .95;
-}
-
-.arch-left {
-  justify-self: start;
-}
-
-.arch-right {
-  justify-self: end;
-}
-
-
-/* =========================
-   ФОНАРЬ
-========================= */
-
-.lantern {
-  position: absolute;
-
-  left: 50%;
-  bottom: 20px;
-
-  transform: translateX(-50%);
-
-  width: 80px;
-  height: 125px;
-
-  display: grid;
-  place-items: center;
-
-  border: 3px solid #9d6c17;
-
-  border-radius: 14px 14px 22px 22px;
-
-  background:
-    linear-gradient(
-      #6e4a18,
-      #c58c24 55%,
-      #f2c95f
-    );
-
-  color: #fff3b4;
-
-  font-size: 42px;
-
-  box-shadow:
-    0 0 35px rgba(229, 170, 43, .38);
-}
-
-.arch::after {
-  content: "";
-
-  position: absolute;
-
-  left: 50%;
-  bottom: 0;
-
-  transform: translateX(-50%);
-
-  width: 120px;
-  height: 5px;
-
-  background: var(--gold);
-
-  border-radius: 50%;
-}
-
-
-/* =========================
-   ОСНОВНАЯ ЧАСТЬ
-========================= */
+/* ==========================
+   ОСНОВА
+========================== */
 
 main {
   padding: 20px;
 }
 
 .card {
-  background: rgba(255, 253, 249, .93);
+  background: rgba(255,253,249,.96);
 
   border: 1px solid var(--line);
 
-  border-radius: 26px;
+  border-radius: 25px;
 
-  box-shadow: var(--shadow);
-
-  padding: clamp(25px, 4vw, 45px);
+  padding: clamp(25px,4vw,45px);
 
   margin-bottom: 20px;
+
+  box-shadow:
+    0 10px 35px rgba(117,83,38,.09);
 }
 
 
-/* =========================
+/* ==========================
    ПРИВЕТСТВИЕ
-========================= */
+========================== */
 
 .welcome {
   text-align: center;
 }
 
 .welcome h3 {
-  font-size: clamp(30px, 4vw, 43px);
+  font-size: clamp(31px,4vw,44px);
 
-  margin: 8px 0 17px;
+  margin-bottom: 20px;
 }
 
 .welcome p {
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 20px;
+  font-size: 21px;
 
   line-height: 1.45;
 
-  margin: 7px 0;
+  margin-bottom: 10px;
 }
 
 
-/* =========================
-   ЦИТАТА
-========================= */
+/* цитата */
 
 blockquote {
   position: relative;
@@ -340,11 +296,11 @@ blockquote {
 
   margin: 28px auto 0;
 
-  padding: 25px 50px;
+  padding: 27px 50px;
 
-  border: 1px solid #e2b752;
+  border: 1px solid #dfbd64;
 
-  border-radius: 14px;
+  border-radius: 17px;
 
   background: #fffaf0;
 
@@ -354,47 +310,47 @@ blockquote {
 
   font-size: 21px;
 
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 blockquote footer {
   margin-top: 10px;
 
-  font-size: 18px;
-
   color: var(--gold-dark);
+
+  font-size: 18px;
 }
 
-.quote-mark {
+.quote-left,
+.quote-right {
   position: absolute;
-
-  left: 13px;
-  top: 3px;
 
   color: var(--gold);
 
   font-size: 50px;
 }
 
-.quote-mark.bottom {
-  left: auto;
-  right: 13px;
+.quote-left {
+  left: 15px;
+  top: 0;
+}
 
-  top: auto;
-  bottom: -10px;
+.quote-right {
+  right: 15px;
+  bottom: -12px;
 }
 
 
-/* =========================
-   ДАТА / ВРЕМЯ / МЕСТО
-========================= */
+/* ==========================
+   ДЕТАЛИ
+========================== */
 
 .details {
   text-align: center;
 }
 
 .details h3 {
-  font-size: 42px;
+  font-size: 43px;
 
   margin-bottom: 28px;
 }
@@ -402,32 +358,33 @@ blockquote footer {
 .info-grid {
   display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns:
+    repeat(3,1fr);
 
-  gap: 18px;
+  gap: 16px;
 }
 
 .info-box {
+  min-height: 110px;
+
   display: flex;
 
   align-items: center;
 
-  gap: 18px;
+  gap: 15px;
 
-  min-height: 115px;
-
-  padding: 20px;
+  padding: 18px;
 
   border: 1px solid var(--line);
 
-  border-radius: 18px;
-
-  text-align: left;
+  border-radius: 17px;
 
   background: #fffdf9;
+
+  text-align: left;
 }
 
-.info-box .icon {
+.info-icon {
   width: 50px;
   height: 50px;
 
@@ -439,11 +396,9 @@ blockquote footer {
 
   border-radius: 50%;
 
-  background: #fff7df;
+  background: #fff6dc;
 
-  color: var(--gold);
-
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .info-box span {
@@ -451,9 +406,9 @@ blockquote footer {
 
   color: var(--muted);
 
-  font-size: 14px;
+  font-size: 13px;
 
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .info-box strong {
@@ -461,21 +416,17 @@ blockquote footer {
 
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 25px;
-
-  font-weight: 600;
+  font-size: 24px;
 }
-
-
-/* =========================
-   ТАЙМЕР
-========================= */
 
 .details h4 {
   font-size: 30px;
 
-  margin: 27px 0 16px;
+  margin: 28px 0 17px;
 }
+
+
+/* таймер */
 
 .countdown {
   display: flex;
@@ -484,24 +435,24 @@ blockquote footer {
 
   flex-wrap: wrap;
 
-  gap: 18px;
+  gap: 12px;
 }
 
 .countdown div {
   min-width: 105px;
 
-  padding: 14px 15px;
+  padding: 14px;
 
   border-radius: 14px;
 
   background:
     linear-gradient(
       135deg,
-      #fff9ea,
-      #f7f0e4
+      #fff9e8,
+      #f7f0e3
     );
 
-  border: 1px solid #eee1cd;
+  border: 1px solid #eee0c7;
 }
 
 .countdown strong {
@@ -510,20 +461,18 @@ blockquote footer {
   font-family: "Cormorant Garamond", serif;
 
   font-size: 31px;
-
-  color: #302820;
 }
 
 .countdown span {
-  font-size: 12px;
-
   color: var(--muted);
+
+  font-size: 12px;
 }
 
 
-/* =========================
+/* ==========================
    НИЖНИЕ БЛОКИ
-========================= */
+========================== */
 
 .bottom-grid {
   display: grid;
@@ -533,42 +482,30 @@ blockquote footer {
   gap: 20px;
 }
 
-.bottom-grid .card {
+.location,
+.rsvp {
   margin-bottom: 0;
 }
 
-.location,
-.rsvp {
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  align-items: center;
-}
-
 .card h3 {
-  font-size: 31px;
+  font-size: 32px;
 
-  margin-bottom: 9px;
+  margin-bottom: 10px;
 }
 
 .location p,
 .rsvp p {
   font-family: "Cormorant Garamond", serif;
 
-  font-size: 19px;
+  font-size: 20px;
 
-  line-height: 1.3;
+  line-height: 1.35;
 
   margin-bottom: 20px;
 }
 
 
-/* =========================
-   КНОПКИ
-========================= */
+/* кнопки */
 
 .button {
   display: inline-flex;
@@ -577,13 +514,13 @@ blockquote footer {
 
   justify-content: center;
 
-  min-height: 46px;
+  min-height: 47px;
 
-  padding: 10px 18px;
+  padding: 10px 20px;
 
   border-radius: 11px;
 
-  border: 1px solid #e5b94f;
+  border: 1px solid #dfb74f;
 
   background: #fff7df;
 
@@ -601,91 +538,22 @@ blockquote footer {
 .button:hover {
   transform: translateY(-2px);
 
-  background: #ffeebc;
-
-  box-shadow:
-    0 8px 18px rgba(191, 133, 19, .15);
+  background: #ffedb8;
 }
 
 
-/* =========================
-   КАРТА
-========================= */
-
-.map {
-  width: 190px;
-  height: 145px;
-
-  flex: 0 0 190px;
-
-  display: grid;
-
-  place-content: center;
-
-  gap: 7px;
-
-  text-align: center;
-
-  border: 1px solid #e1d5c3;
-
-  border-radius: 14px;
-
-  background:
-    linear-gradient(
-      35deg,
-      transparent 48%,
-      rgba(150, 130, 105, .2) 49% 51%,
-      transparent 52%
-    ),
-    linear-gradient(
-      -25deg,
-      transparent 48%,
-      rgba(150, 130, 105, .18) 49% 51%,
-      transparent 52%
-    ),
-    #f8f4ec;
-
-  color: var(--gold-dark);
-
-  font-size: 35px;
-}
-
-.map small {
-  color: var(--muted);
-
-  font-size: 11px;
-}
-
-
-/* =========================
-   RSVP
-========================= */
-
-.rsvp {
-  background:
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(226, 171, 47, .12),
-      transparent 30%
-    ),
-    rgba(255, 253, 249, .93);
-}
-
-
-/* =========================
+/* ==========================
    ФИНАЛ
-========================= */
+========================== */
 
 .closing {
   text-align: center;
 
   margin-top: 20px;
+}
 
-  padding: 30px 20px;
-
-  border-radius: 25px;
-
-  border-top: 1px solid #e2c88f;
+.closing .small {
+  font-size: 27px;
 }
 
 .closing p {
@@ -693,26 +561,22 @@ blockquote footer {
 
   font-size: 20px;
 
-  line-height: 1.35;
+  line-height: 1.4;
 
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 .closing h3 {
   color: var(--gold-dark);
-
-  font-size: 33px;
 }
 
 
-/* =========================
-   FOOTER
-========================= */
+/* footer */
 
 .footer {
   text-align: center;
 
-  padding: 0 20px 28px;
+  padding: 0 20px 30px;
 
   color: #9b8977;
 
@@ -720,71 +584,64 @@ blockquote footer {
 }
 
 
-/* =========================
-   АНИМАЦИЯ
-========================= */
-
-.reveal {
-  opacity: 0;
-
-  transform: translateY(25px);
-
-  transition:
-    opacity .7s ease,
-    transform .7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-
-  transform: translateY(0);
-}
-
-
-/* =========================
-   ПЛАНШЕТ
-========================= */
+/* ==========================
+   ТЕЛЕФОН
+========================== */
 
 @media (max-width: 800px) {
 
   .hero {
     grid-template-columns: 1fr;
 
-    min-height: 570px;
+    min-height: 520px;
 
     padding-top: 35px;
   }
 
-  .arch {
+  .decor {
     display: none;
   }
 
-  .info-grid,
-  .bottom-grid {
+  .info-grid {
     grid-template-columns: 1fr;
   }
 
-  .location,
-  .rsvp {
-    align-items: stretch;
-  }
-
-  .map {
-    width: 160px;
-
-    flex-basis: 160px;
+  .bottom-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 
-/* =========================
-   ТЕЛЕФОН
-========================= */
-
 @media (max-width: 520px) {
 
   .hero {
-    min-height: 520px;
+    min-height: 500px;
+
+    padding:
+      35px 15px
+      25px;
+  }
+
+  .arabic {
+    font-size: 26px;
+  }
+
+  .permission {
+    font-size: 18px;
+
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+  }
+
+  .hero h2 {
+    font-size: 65px;
+  }
+
+  .hero-text {
+    font-size: 20px;
   }
 
   main {
@@ -797,18 +654,6 @@ blockquote footer {
     border-radius: 20px;
   }
 
-  .hero h1 {
-    font-size: 45px;
-  }
-
-  .hero h2 {
-    font-size: 67px;
-  }
-
-  .hero-text {
-    font-size: 20px;
-  }
-
   .welcome h3,
   .details h3 {
     font-size: 31px;
@@ -819,36 +664,13 @@ blockquote footer {
   }
 
   blockquote {
-    padding: 20px 28px;
+    padding: 22px 27px;
 
     font-size: 18px;
   }
 
-  .info-grid {
-    gap: 10px;
-  }
-
-  .info-box {
-    min-height: 90px;
-  }
-
   .info-box strong {
     font-size: 22px;
-  }
-
-  .location,
-  .rsvp {
-    flex-direction: column;
-  }
-
-  .map {
-    width: 100%;
-
-    height: 120px;
-  }
-
-  .button {
-    width: 100%;
   }
 
   .countdown {
@@ -856,6 +678,11 @@ blockquote footer {
   }
 
   .countdown div {
-    min-width: calc(50% - 8px);
+    min-width:
+      calc(50% - 8px);
+  }
+
+  .button {
+    width: 100%;
   }
 }
